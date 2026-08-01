@@ -1,0 +1,343 @@
+.explore-globe {
+  width: min(100% - 2 * var(--space-lg), 75rem);
+  margin-inline: auto;
+  padding-block: clamp(var(--space-2xl), 8vw, 7rem);
+}
+
+.explore-globe-heading {
+  max-width: 46rem;
+  margin-bottom: var(--space-xl);
+}
+
+.explore-globe-heading h2 {
+  max-width: 22ch;
+  margin-bottom: var(--space-md);
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.explore-globe-heading > p:last-child {
+  max-width: 38rem;
+  color: var(--color-muted);
+  font-size: 1.125rem;
+}
+
+.explore-globe-eyebrow,
+.globe-food-country {
+  margin-bottom: var(--space-sm);
+  color: var(--color-accent-dark);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.explore-globe-toolbar {
+  position: relative;
+  z-index: 3;
+  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: end;
+  gap: var(--space-md);
+}
+
+.globe-country-search {
+  position: relative;
+  width: min(100%, 34rem);
+}
+
+.globe-country-search label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--color-primary);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.globe-country-search input {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 0.5rem 1.5rem rgb(32 51 47 / 7%);
+}
+
+.globe-country-search input::placeholder {
+  color: var(--color-muted);
+}
+
+.globe-search-results {
+  position: absolute;
+  top: calc(100% + var(--space-xs));
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  max-height: 20rem;
+  overflow-y: auto;
+  padding: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 1rem;
+  background: var(--color-surface);
+  box-shadow: 0 1rem 2.5rem rgb(32 51 47 / 18%);
+}
+
+.globe-search-result-count,
+.globe-search-empty {
+  margin: var(--space-xs);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+.globe-search-results ul {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.globe-search-results button {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  border: 0;
+  border-radius: 0.65rem;
+  background: transparent;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.globe-search-results button span:first-child {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.globe-search-results button span:last-child {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.globe-search-result-dish {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.globe-search-results button:hover,
+.globe-search-results button[aria-pressed="true"] {
+  background: var(--color-accent-soft);
+}
+
+.globe-surprise-action {
+  min-height: 3.25rem;
+  padding: 0.75rem 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border: 1px solid var(--color-primary);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-primary);
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.globe-surprise-action:hover {
+  background: var(--color-primary);
+  color: var(--color-surface);
+}
+
+.globe-stage {
+  position: relative;
+  isolation: isolate;
+  min-height: 34rem;
+  padding: clamp(var(--space-md), 3vw, var(--space-xl));
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 2px solid var(--color-primary);
+  border-radius: clamp(1.25rem, 3vw, 2.5rem);
+  background: var(--color-accent-soft);
+}
+
+.globe-placeholder {
+  width: 100%;
+  max-width: 40rem;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 30%,
+    var(--color-accent-soft),
+    var(--color-primary) 70%
+  );
+  animation: globe-placeholder-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes globe-placeholder-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.globe-legend {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-lg);
+  padding: 0.45rem 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  border-radius: 999px;
+  background: rgb(255 253 248 / 88%);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  backdrop-filter: blur(0.5rem);
+}
+
+.globe-legend span {
+  width: 0.7rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.globe-food-card {
+  position: absolute;
+  left: var(--space-lg);
+  bottom: var(--space-lg);
+  width: min(25rem, calc(100% - 2 * var(--space-lg)));
+  padding: var(--space-lg);
+  border: 2px solid var(--color-primary);
+  border-radius: 1.25rem;
+  background: var(--color-surface);
+  box-shadow: 0.55rem 0.55rem 0 var(--color-peach);
+}
+
+.globe-food-emoji {
+  position: absolute;
+  top: -2rem;
+  right: 1.15rem;
+  width: 4.25rem;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  background: var(--color-peach);
+  font-size: 2.25rem;
+  line-height: 1;
+  box-shadow: 0.22rem 0.22rem 0 var(--color-primary);
+  animation: globe-sticker-pop 300ms ease-out;
+}
+
+.globe-comfort-found {
+  width: fit-content;
+  margin-bottom: var(--space-sm);
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-text);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.globe-food-card h3 {
+  margin: 0 0 var(--space-sm);
+  color: var(--color-primary);
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  line-height: 1.05;
+}
+
+.globe-food-card .spice-badge {
+  margin-bottom: var(--space-sm);
+}
+
+.globe-food-card > p:last-child {
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
+@keyframes globe-sticker-pop {
+  0% {
+    opacity: 0;
+    transform: rotate(-12deg) scale(0.65);
+  }
+
+  70% {
+    transform: rotate(4deg) scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@media (max-width: 48rem) {
+  .explore-globe-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .globe-country-search,
+  .globe-surprise-action {
+    width: 100%;
+  }
+
+  .globe-surprise-action {
+    justify-content: center;
+  }
+
+  .globe-stage {
+    min-height: auto;
+    padding: var(--space-md);
+    overflow: visible;
+  }
+
+  .globe-legend {
+    top: var(--space-sm);
+    right: var(--space-sm);
+  }
+
+  .globe-food-card {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: var(--space-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe-surprise-action {
+    transition: none;
+  }
+
+  .globe-food-emoji {
+    animation: none;
+  }
+
+  .globe-placeholder {
+    animation: none;
+    opacity: 0.5;
+  }
+}

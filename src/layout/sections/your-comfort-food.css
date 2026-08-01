@@ -1,0 +1,222 @@
+.your-comfort-food {
+  width: min(100% - 2 * var(--space-lg), 75rem);
+  margin-inline: auto;
+  padding-block: clamp(var(--space-2xl), 8vw, 7rem);
+}
+
+.comfort-intro {
+  max-width: 46rem;
+  margin-bottom: var(--space-2xl);
+}
+
+.comfort-intro h2 {
+  margin-bottom: var(--space-lg);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.comfort-intro > p:last-child {
+  max-width: 40rem;
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+.comfort-maker {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 1.1fr);
+  align-items: stretch;
+  gap: var(--space-xl);
+}
+
+.comfort-form {
+  padding: var(--space-xl);
+  display: grid;
+  align-content: center;
+  gap: var(--space-lg);
+  border: 2px solid var(--color-primary);
+  border-radius: 1.5rem;
+  background: var(--color-surface);
+}
+
+.comfort-form label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.comfort-form input {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.75rem;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+.stamp-style-picker {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.stamp-style-picker legend {
+  margin-bottom: var(--space-xs);
+  padding: 0;
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.stamp-swatches {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.stamp-swatch {
+  width: 2.25rem;
+  aspect-ratio: 1;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px transparent;
+  cursor: pointer;
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.stamp-swatch:hover {
+  transform: scale(1.08);
+}
+
+.stamp-swatch[aria-pressed="true"] {
+  box-shadow: 0 0 0 3px var(--color-surface), 0 0 0 6px var(--color-primary);
+}
+
+.comfort-form button,
+.personal-comfort-card button {
+  width: fit-content;
+  min-height: 3rem;
+  padding: 0.7rem 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.comfort-form button:hover,
+.personal-comfort-card button:hover {
+  background: var(--color-primary-hover);
+}
+
+.comfort-card-stage {
+  min-height: 29rem;
+  padding: var(--space-xl);
+  display: grid;
+  place-items: center;
+  border: 2px dashed var(--color-primary);
+  border-radius: 1.5rem;
+  background: var(--color-accent-soft);
+}
+
+.comfort-card-placeholder {
+  max-width: 16rem;
+  color: var(--color-accent-dark);
+  text-align: center;
+}
+
+.comfort-card-placeholder span {
+  display: block;
+  font-size: 3rem;
+}
+
+.personal-comfort-card {
+  width: min(100%, 24rem);
+  padding: var(--space-xl);
+  border: 2px solid var(--color-primary);
+  border-radius: 1.25rem;
+  background: var(--color-peach);
+  box-shadow: 0.6rem 0.6rem 0 var(--color-primary);
+  text-align: center;
+  animation: card-arrive 300ms ease-out;
+}
+
+.personal-comfort-card > span {
+  display: block;
+  font-size: 3.5rem;
+}
+
+.personal-comfort-card > p:first-of-type {
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.personal-comfort-card h3 {
+  margin: var(--space-lg) 0 var(--space-xs);
+  color: var(--color-primary);
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.passport-note {
+  width: fit-content;
+  margin: var(--space-lg) auto;
+  padding: 0.35rem 0.7rem;
+  border: 2px solid var(--color-secondary);
+  border-radius: 0.3rem;
+  color: var(--color-secondary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-3deg);
+}
+
+.comfort-card-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.personal-comfort-card .secondary-card-action {
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.personal-comfort-card .secondary-card-action:hover {
+  background: var(--color-accent-soft);
+}
+
+@keyframes card-arrive {
+  from {
+    opacity: 0;
+    transform: rotate(-3deg) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+@media (max-width: 48rem) {
+  .comfort-maker {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .personal-comfort-card {
+    animation: none;
+  }
+
+  .stamp-swatch {
+    transition: none;
+  }
+}

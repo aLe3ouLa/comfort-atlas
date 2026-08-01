@@ -1,0 +1,129 @@
+:root {
+   --color-background: #faf9f6;
+  --color-surface: #fffdf8;
+
+  --color-text: #20332f;
+  --color-muted: #667068;
+
+  --color-primary: #234b45;
+  --color-primary-hover: #173a35;
+
+  --color-secondary: #a55b32;
+  --color-secondary-hover: #884725;
+
+  --color-accent: #a7963b;
+  --color-accent-hover: #8d7e2f;
+  --color-accent-soft: #ded8ad;
+  --color-accent-dark: #5f5724;
+
+  --color-peach: #cfa58c;
+  --color-sage: #92978a;
+  --color-border: #cbc7ba;
+
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+
+  --font-family: "Nunito", system-ui, sans-serif;
+
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 20rem;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  line-height: 1.5;
+}
+
+main section {
+  scroll-margin-top: 8rem;
+}
+
+h1,
+h2,
+p {
+  margin-block-start: 0;
+}
+
+h1,
+h2 {
+  color: var(--color-primary);
+}
+
+h1 {
+  font-weight: 800;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  /* --color-accent is ~2.8:1 against --color-background/--color-surface,
+     under WCAG 1.4.11's 3:1 non-text-contrast minimum — accent-dark
+     measures ~6.9:1, so it's the safe choice for a ring that has to read
+     on both light tokens. */
+  outline: 3px solid var(--color-accent-dark);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: -4rem;
+  left: var(--space-lg);
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-surface);
+  font-weight: 800;
+  text-decoration: none;
+  transition: top 180ms ease;
+}
+
+.skip-link:focus-visible {
+  top: var(--space-lg);
+}
+
+#main-content:focus {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .skip-link {
+    transition: none;
+  }
+}
